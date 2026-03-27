@@ -13,7 +13,7 @@
 
     <h2>1. Подключение к учебному серверу по SSH</h2>
     <p>Для подключения к учебному серверу университета, использующему протокол SSH, я использовал приложение PuTTY.</p>
-    <img src="screenshots/putty.png" alt="PuTTY подключение" width="800">
+    <img src="screenshots/putty.png" alt="PuTTY подключение" width="600">
     <p>Скриншот: Настройки подключения в PuTTY</p>
     <p>Чтобы подключиться к нужному серверу, я ввел данные:</p>
     <ul>
@@ -118,6 +118,16 @@ git clone https://github.com/sladkomedovyaroslav/numb1.git numb1
     </pre>
     <img src="screenshots/putty5.png" alt="git clone результат" width="800">
     <p>Скриншот: Результат выполнения git clone</p>
+    <p>Генерация SSH-ключей производилась с помощью команд:</p>
+    <pre>
+mkdir -p ~/.ssh (создание папки для ssh ключей)
+chmod 700 ~/.ssh (ограничение доступа к папке)
+ssh-keygen -t ed25519 (сама генерация ключа для использования его на GitHub)
+    </pre>
+    <p>Создалось 2 файла, один с публичным ключом, а второй с приватным (id_ed25519.pub и id_ed25519 соответственно)</p>
+    <img src="screenshots/sshkey.png" alt="SSH ключи" width="800">
+    <p>Далее вводим полученный публичный ключ-ssh в настройках аккаунта GitHub</p>
+    <img src="screenshots/githubssh.png" alt="GitHub SSH настройки" width="800">
     <p>5) Веб-страница открывается по адресу: http://u82683.kubsu-dev.ru/numb1/</p>
     <img src="screenshots/putty6.png" alt="Сайт открывается" width="800">
     <p>Скриншот: Веб-страница в браузере</p>
@@ -138,7 +148,7 @@ git clone https://github.com/sladkomedovyaroslav/numb1.git numb1
 
     <hr>
 
-    <p>Git-репозиторий: https://github.com/sladkomedovyaroslav/numb1</p>
-    <p>Сайт: http://u82683.kubsu-dev.ru/numb1/</p>
+    <p>После всей работы, я обновил репозиторий на GitHub с помощью GitHub Bash, чтобы добавить недостающие файлы, а потом обновил файлы на сервере с помощью команды git pull</p>
+    <img src="screenshots/update.png" alt="Обновление репозитория" width="800">
 </body>
 </html>
