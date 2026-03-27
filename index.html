@@ -2,18 +2,19 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Задание 1 - Сетевая диагностика</title>
+    <title>Лабораторная работа 1</title>
 </head>
 <body>
     <h1>Отчет по заданию №1</h1>
     <p><strong>Студент:</strong> Сладкомедов Ярослав</p>
     <p><strong>Логин:</strong> u82683</p>
-    <p><strong>Дата выполнения:</strong> 27 марта 2026 г.</p>
 
     <hr>
 
     <h2>1. Подключение к учебному серверу по SSH</h2>
     <p>Для подключения к учебному серверу университета, использующему протокол SSH, я использовал приложение PuTTY.</p>
+    <img src="screenshots/putty.png" alt="PuTTY подключение" width="800">
+    <p>Скриншот: Настройки подключения в PuTTY</p>
     <p>Чтобы подключиться к нужному серверу, я ввел данные:</p>
     <ul>
         <li>Host Name: kubsu-dev.ru</li>
@@ -26,6 +27,8 @@
         <li>Пароль: 1511698</li>
     </ul>
     <p>Далее мне открылся приветственный экран сервера.</p>
+    <img src="screenshots/putty2.png" alt="Приветственный экран сервера" width="800">
+    <p>Скриншот: Приветственный экран после входа</p>
 
     <hr>
 
@@ -95,6 +98,8 @@
 
     <h2>5. Создание веб-страницы и размещение на сервере</h2>
     <p>1) Я создал файл index.html в отдельной папке.</p>
+    <img src="screenshots/putty3.png" alt="Создание index.html" width="800">
+    <p>Скриншот: Создание файла index.html</p>
     <p>2) Также в этой папке я создал папку screenshots со всеми фото, которые будут на сайте.</p>
     <p>3) Далее я выбрал эту папку в программе Git Bash, а затем с помощью команд скопировал все содержимое папки в новый репозиторий на GitHub:</p>
     <pre>
@@ -104,12 +109,18 @@ git commit -m "Первая версия"
 git remote add origin https://github.com/sladkomedovyaroslav/numb1
 git push -u origin main
     </pre>
+    <img src="screenshots/putty4.png" alt="git push результат" width="800">
+    <p>Скриншот: Результат выполнения git push</p>
     <p>4) После этого я подключился к серверу по SSH и склонировал репозиторий в каталог www:</p>
     <pre>
 cd ~/www
-git clone https://github.com/sladkomedovyaroslav/numb1.git zadanie_1
+git clone https://github.com/sladkomedovyaroslav/numb1.git numb1
     </pre>
-    <p>5) Веб-страница открывается по адресу: http://u82683.kubsu-dev.ru/zadanie_1/</p>
+    <img src="screenshots/putty5.png" alt="git clone результат" width="800">
+    <p>Скриншот: Результат выполнения git clone</p>
+    <p>5) Веб-страница открывается по адресу: http://u82683.kubsu-dev.ru/numb1/</p>
+    <img src="screenshots/putty6.png" alt="Сайт открывается" width="800">
+    <p>Скриншот: Веб-страница в браузере</p>
 
     <hr>
 
@@ -121,26 +132,13 @@ git clone https://github.com/sladkomedovyaroslav/numb1.git zadanie_1
         <li>Пароль: 1511698</li>
         <li>Порт: 58528</li>
     </ul>
-    <p>После подключения я скопировал файлы из папки ~/www/zadanie_1/ на локальный компьютер. Все файлы успешно скачались.</p>
+    <p>После подключения я скопировал файлы из папки ~/www/numb1/ на локальный компьютер. Все файлы успешно скачались.</p>
     <img src="screenshots/sftp.png" alt="FileZilla" width="800">
     <p>Скриншот 8: Окно FileZilla после скачивания файлов с сервера</p>
 
     <hr>
 
-    <h2>Выводы</h2>
-    <p>В ходе выполнения работы были получены следующие результаты:</p>
-    <ul>
-        <li>Определен IP-адрес веб-сервера kubsu.ru (185.13.84.92)</li>
-        <li>Получены A-записи и MX-записи доменов kubsu.ru и kubsu-dev.ru</li>
-        <li>Установлены даты регистрации доменов: kubsu.ru — 28 марта 1998 г., kubsu-dev.ru — 12 февраля 2020 г.</li>
-        <li>Создана веб-страница с результатами выполненных команд</li>
-        <li>Файлы размещены на сервере и доступны по ссылке</li>
-        <li>Выполнено копирование файлов обратно через SFTP</li>
-    </ul>
-
-    <hr>
-
     <p>Git-репозиторий: https://github.com/sladkomedovyaroslav/numb1</p>
-    <p>Сайт: http://u82683.kubsu-dev.ru/zadanie_1/</p>
+    <p>Сайт: http://u82683.kubsu-dev.ru/numb1/</p>
 </body>
 </html>
