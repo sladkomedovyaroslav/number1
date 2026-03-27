@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1 - Сетевая диагностика</title>
+</head>
+<body>
+    <h1>Отчет по заданию №1</h1>
+    <p><strong>Студент:</strong> Сладкомедов Ярослав</p>
+    <p><strong>Логин:</strong> u82683</p>
+    <p><strong>Дата выполнения:</strong> 27 марта 2026 г.</p>
+
+    <hr>
+
+    <h2>1. Подключение к учебному серверу по SSH</h2>
+    <p>Для подключения к учебному серверу университета, использующему протокол SSH, я использовал приложение PuTTY.</p>
+    <p>Чтобы подключиться к нужному серверу, я ввел данные:</p>
+    <ul>
+        <li>Host Name: kubsu-dev.ru</li>
+        <li>Port: 58528 (порт был выдан преподавателем, так как со стандартным портом не подключалось)</li>
+        <li>Connection type: SSH</li>
+    </ul>
+    <p>После нажатия кнопки Open открылась консоль, в которую я ввел логин и пароль, полученные от преподавателя:</p>
+    <ul>
+        <li>Логин: u82683</li>
+        <li>Пароль: 1511698</li>
+    </ul>
+    <p>Далее мне открылся приветственный экран сервера.</p>
+
+    <hr>
+
+    <h2>2. Определение IP-адреса (команда ping)</h2>
+    <p><strong>Команда:</strong> ping kubsu.ru</p>
+    <p><strong>Что делает команда:</strong> Утилита ping отправляет ICMP-запросы на указанный узел и измеряет время ответа.</p>
+    <p><strong>Результат:</strong> Я получил IP адрес сервера kubsu.ru (185.13.84.92).</p>
+    <img src="screenshots/ping.png" alt="ping результат" width="800">
+    <p>Скриншот 1: Результат выполнения команды ping для kubsu.ru</p>
+
+    <hr>
+
+    <h2>3. DNS-записи (команда nslookup)</h2>
+
+    <h3>A-запись домена kubsu.ru</h3>
+    <p><strong>Команда:</strong> nslookup -type=A kubsu.ru</p>
+    <p><strong>Что делает команда:</strong> Запрашивает у DNS-сервера адресную запись (A-запись) для домена, которая связывает имя с IPv4-адресом.</p>
+    <p><strong>Результат:</strong> Я получил IP адрес сервера kubsu.ru 185.13.84.92.</p>
+    <img src="screenshots/nslookup_a_kubsu.png" alt="A-записи kubsu.ru" width="800">
+    <p>Скриншот 2: A-записи домена kubsu.ru</p>
+
+    <h3>MX-запись домена kubsu.ru</h3>
+    <p><strong>Команда:</strong> nslookup -type=MX kubsu.ru</p>
+    <p><strong>Что делает команда:</strong> Запрашивает MX-записи домена, указывающие, какие почтовые серверы обслуживают домен и с каким приоритетом.</p>
+    <p><strong>Результат:</strong> Я получил 3 почтовых сервера, обслуживающих kubsu.ru:</p>
+    <ul>
+        <li>mx.kubannet.ru с приоритетом 20</li>
+        <li>mx.kubsu.ru с приоритетом 50</li>
+        <li>mx2.kubannet.ru с приоритетом 10 (наивысший приоритет, основной сервер)</li>
+    </ul>
+    <img src="screenshots/nslookup_mx_kubsu.png" alt="MX-записи kubsu.ru" width="800">
+    <p>Скриншот 3: MX-записи домена kubsu.ru</p>
+
+    <h3>A-запись домена kubsu-dev.ru</h3>
+    <p><strong>Команда:</strong> nslookup -type=A kubsu-dev.ru</p>
+    <p><strong>Что делает команда:</strong> Запрашивает у DNS-сервера адресную запись (A-запись) для домена kubsu-dev.ru.</p>
+    <p><strong>Результат:</strong> Я получил IP адрес сервера kubsu-dev.ru 212.192.134.135.</p>
+    <img src="screenshots/nslookup_a_kubsu-dev.png" alt="A-записи kubsu-dev.ru" width="800">
+    <p>Скриншот 4: A-записи домена kubsu-dev.ru</p>
+
+    <h3>MX-запись домена kubsu-dev.ru</h3>
+    <p><strong>Команда:</strong> nslookup -type=MX kubsu-dev.ru</p>
+    <p><strong>Что делает команда:</strong> Запрашивает MX-записи домена, указывающие, какие почтовые серверы обслуживают домен.</p>
+    <p><strong>Результат:</strong> Для домена kubsu-dev.ru не найдено MX-записей, то есть kubsu-dev.ru не имеет почтовых серверов. В авторитативном ответе указано 2 DNS-сервера: nsl.nameself.com и support.regtime.net.</p>
+    <img src="screenshots/nslookup_mx_kubsu-dev.png" alt="MX-записи kubsu-dev.ru" width="800">
+    <p>Скриншот 5: MX-записи домена kubsu-dev.ru</p>
+
+    <hr>
+
+    <h2>4. Информация о регистрации доменов (команда whois)</h2>
+
+    <h3>Домен kubsu.ru</h3>
+    <p><strong>Команда:</strong> whois kubsu.ru</p>
+    <p><strong>Что делает команда:</strong> Утилита whois запрашивает регистрационные данные домена из базы данных регистратора.</p>
+    <p><strong>Результат:</strong> В результате вывелась строка created: 1998-03-28T12:18:30Z, то есть домен kubsu.ru зарегистрирован 28 марта 1998 года. Домен оплачен до 30 апреля 2026 года.</p>
+    <img src="screenshots/whois_kubsu.png" alt="whois kubsu.ru" width="800">
+    <p>Скриншот 6: Результат выполнения whois для kubsu.ru</p>
+
+    <h3>Домен kubsu-dev.ru</h3>
+    <p><strong>Команда:</strong> whois kubsu-dev.ru</p>
+    <p><strong>Что делает команда:</strong> Утилита whois запрашивает регистрационные данные домена из базы данных регистратора для kubsu-dev.ru.</p>
+    <p><strong>Результат:</strong> В результате вывелась строка created: 2020-02-12T15:55:06Z, то есть домен kubsu-dev.ru зарегистрирован 12 февраля 2020 года. Домен оплачен до 12 февраля 2027 года.</p>
+    <img src="screenshots/whois_kubsu-dev.png" alt="whois kubsu-dev.ru" width="800">
+    <p>Скриншот 7: Результат выполнения whois для kubsu-dev.ru</p>
+
+    <hr>
+
+    <h2>5. Создание веб-страницы и размещение на сервере</h2>
+    <p>1) Я создал файл index.html в отдельной папке.</p>
+    <p>2) Также в этой папке я создал папку screenshots со всеми фото, которые будут на сайте.</p>
+    <p>3) Далее я выбрал эту папку в программе Git Bash, а затем с помощью команд скопировал все содержимое папки в новый репозиторий на GitHub:</p>
+    <pre>
+git init
+git add .
+git commit -m "Первая версия"
+git remote add origin https://github.com/sladkomedovyaroslav/numb1
+git push -u origin main
+    </pre>
+    <p>4) После этого я подключился к серверу по SSH и склонировал репозиторий в каталог www:</p>
+    <pre>
+cd ~/www
+git clone https://github.com/sladkomedovyaroslav/numb1.git zadanie_1
+    </pre>
+    <p>5) Веб-страница открывается по адресу: http://u82683.kubsu-dev.ru/zadanie_1/</p>
+
+    <hr>
+
+    <h2>6. Копирование файлов через SFTP (FileZilla)</h2>
+    <p>Я использовал программу FileZilla Client для подключения к серверу по SFTP. Данные для подключения:</p>
+    <ul>
+        <li>Хост: sftp://kubsu-dev.ru</li>
+        <li>Логин: u82683</li>
+        <li>Пароль: 1511698</li>
+        <li>Порт: 58528</li>
+    </ul>
+    <p>После подключения я скопировал файлы из папки ~/www/zadanie_1/ на локальный компьютер. Все файлы успешно скачались.</p>
+    <img src="screenshots/sftp.png" alt="FileZilla" width="800">
+    <p>Скриншот 8: Окно FileZilla после скачивания файлов с сервера</p>
+
+    <hr>
+
+    <h2>Выводы</h2>
+    <p>В ходе выполнения работы были получены следующие результаты:</p>
+    <ul>
+        <li>Определен IP-адрес веб-сервера kubsu.ru (185.13.84.92)</li>
+        <li>Получены A-записи и MX-записи доменов kubsu.ru и kubsu-dev.ru</li>
+        <li>Установлены даты регистрации доменов: kubsu.ru — 28 марта 1998 г., kubsu-dev.ru — 12 февраля 2020 г.</li>
+        <li>Создана веб-страница с результатами выполненных команд</li>
+        <li>Файлы размещены на сервере и доступны по ссылке</li>
+        <li>Выполнено копирование файлов обратно через SFTP</li>
+    </ul>
+
+    <hr>
+
+    <p>Git-репозиторий: https://github.com/sladkomedovyaroslav/numb1</p>
+    <p>Сайт: http://u82683.kubsu-dev.ru/zadanie_1/</p>
+</body>
+</html>
